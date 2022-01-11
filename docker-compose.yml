@@ -9,6 +9,13 @@ services:
       - DATABASE_URL=postgresql+pg8000://postgres:postgres@db:5432/foo
     depends_on:
       - db
+  tests:
+    build: ./tests
+    command: bash -c "(python -m unittest request_test.py) && (python -m unittest pearson_test.py)"
+    environment:
+      - BASE_URL=http://@api:5336
+    depends_on:
+      - api
   db:
     image: postgres:13.4
     expose:
