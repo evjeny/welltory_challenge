@@ -11,7 +11,7 @@ services:
       - db
   tests:
     build: ./tests
-    command: bash -c "(python -m unittest request_test.py) && (python -m unittest pearson_test.py)"
+    command: bash -c "(sleep 5 && python -m unittest request_test.py) && (python -m unittest pearson_test.py)"
     environment:
       - BASE_URL=http://@api:5336
     depends_on:
