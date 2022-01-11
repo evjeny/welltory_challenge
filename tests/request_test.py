@@ -153,5 +153,6 @@ class TestRequests(BaseTest):
                 response_code_correlation, 404, f"unknown_correlation, {_}"
             )
 
+
 if __name__ == '__main__':
     unittest.main()
