@@ -16,7 +16,7 @@
 ## Запуск тестов и сервера
 
 ```bash
-docker-compose down && docker-compose up --build
+docker-compose up --build
 ```
 
 Команда выполнит два теста:
