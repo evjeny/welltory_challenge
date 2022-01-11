@@ -139,6 +139,19 @@ class TestRequests(BaseTest):
                 response_code_calculate, 200, "unsuccessful_calculate"
             )
 
+    def test_unknown_correlation(self):
+        user_id = 0
+        unseen_type_names = [
+            "hello.world.oh___so_many_dots", "___asdsa___",
+            "..ad.as.d..sd.a.s."
+        ]
+        for type1, type2 in product(unseen_type_names, unseen_type_names):
+            response_code_correlation, _ = self.correlation(
+                user_id, type1, type2
+            )
+            self.assertEqual(
+                response_code_correlation, 404, f"unknown_correlation, {_}"
+            )
 
 if __name__ == '__main__':
     unittest.main()

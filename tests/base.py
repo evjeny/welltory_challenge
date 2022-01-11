@@ -57,7 +57,7 @@ class BaseTest(unittest.TestCase):
             }
         )
         if response.status_code != 200:
-            return (200, None)
+            return (response.status_code, None)
 
         correlation = response.json()["correlation"]
         return (200, (correlation["value"], correlation["p_value"]))
